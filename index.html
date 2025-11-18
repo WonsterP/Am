@@ -6,20 +6,26 @@
   <title>Мясные натуральные деликатесы «Саратов»</title>
   <style>
     body { font-family: 'Arial', 'Segoe UI', sans-serif; color: #222; margin: 0; background: #f9f9f6;}
-    .header-section { background: linear-gradient(#ede6d6, #fff); padding: 52px 0 24px 0; text-align:center;}
-    .header-section h1 { font-size: 2.7em; color: #513525; margin-bottom: 8px;}
-    .header-section p { color: #b9a271; font-size: 1.2em;}
-    .banner-img { width: 340px; max-width: 90vw; border-radius: 30px; box-shadow: 0 3px 16px #c1ad8e; margin-bottom: 27px;}
     nav { margin:20px 0; }
     nav a { color:#b89b68; font-weight:bold; text-decoration: none; margin:0 18px;}
-    .section { max-width: 1050px; margin: 55px auto 0 auto; background: #fff; border-radius: 24px; box-shadow: 0 7px 32px #e7d8bb36; padding: 38px 32px 40px 32px;}
+    .header-section { background: linear-gradient(180deg, #fff8e0 70%, #fdecce 100%); box-shadow: 0 0 50px #e6ca91; padding:52px 0 24px 0; text-align:center; }
+    .header-section h1 { font-size:2.9em; font-family:'Arial Black',Arial,sans-serif; color:#8a3e1c; margin-top:26px; margin-bottom:18px; text-shadow:0 2px 30px #febe7c;}
+    .header-section p { font-size:1.4em; color:#ce832e; font-family:'Segoe UI',Arial,sans-serif; font-weight:700; margin-bottom:16px;}
+    .banner-imgs { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:32px;}
+    .banner-imgs img { border-radius:28px; box-shadow:0 7px 32px #e1c196;}
+    .banner-imgs img:first-child { width:330px;}
+    .banner-imgs img { width:250px;}
+    .features-list {list-style:none; padding:0; margin:0 auto 18px auto; max-width:650px; color:#68421a; font-size:1.16em;}
+    .features-list li {margin-bottom:7px;}
+    .cta-btn { display:inline-block; margin-top:18px; background:linear-gradient(90deg,#f7b265 40%,#d87c3a 100%); color:#fff; font-size:1.4em; font-weight:700; padding:15px 36px; border-radius:13px; text-decoration:none; box-shadow:0 3px 18px #d39954; letter-spacing:1px;}
+    .section { max-width: 1080px; margin: 48px auto 0 auto; background: #fff; border-radius: 24px; box-shadow: 0 7px 32px #e7d8bb36; padding: 38px 32px 40px 32px;}
     .section h2 { color: #aa8542; margin-top:0;}
     .features {display: flex; flex-wrap: wrap; gap:24px; margin:22px 0;}
     .features div {flex:1 1 180px; background:#f1ede7; border-radius:15px; padding:18px; box-shadow:0 1px 7px #e5dac2;}
     .gallery {display: flex; flex-wrap: wrap; gap: 19px; justify-content:center; margin:28px 0;}
-    .gallery img {width:220px; height:157px; object-fit:cover; border-radius:15px; box-shadow:0 1px 6px #ccc;}
+    .gallery img {width:220px; height:157px; object-fit:cover; border-radius:15px; box-shadow:0 1px 6px #bda76e;}
     .product-list { columns:2; column-gap:45px; margin:28px 0;}
-    .product-list li {break-inside:avoid; margin-bottom:18px; font-size:1.1em;}
+    .product-list li {break-inside:avoid; margin-bottom:18px; font-size:1.12em;}
     .call2action { background: #f7f1e7; border-radius: 15px; padding: 24px 17px; margin:24px 0; text-align:center;}
     .call2action button { background: #aa8542; color: #fff; font-weight: bold; padding: 14px 40px; font-size:1.15em; border: none; border-radius: 9px; cursor: pointer;}
     .contacts {background: #ede2d1; border-radius:10px; padding:16px 15px; margin:26px 0;}
@@ -28,10 +34,15 @@
       .section{padding:13px;}
       .features{flex-direction:column;}
       .product-list{columns:1;}
+      .banner-imgs{flex-direction:column;}
+      .banner-imgs img{width:97vw;}
+      .gallery img{width:97vw;}
     }
   </style>
 </head>
 <body>
+
+<!-- Первый экран -->
 <div class="header-section">
   <nav>
     <a href="#features">Преимущества</a>
@@ -39,10 +50,23 @@
     <a href="#order">Заказ</a>
     <a href="#contacts">Контакты</a>
   </nav>
-  <!-- Баннер -->
-  <img src="photo_2025-11-18_22-22-29.jpg" alt="Колбаски домашние" class="banner-img">
-  <h1>Мясные натуральные деликатесы<br>— Саратовский крафтовый цех</h1>
-  <p>Премиум-качество, ручная работа, натуральные специи.<br>Доставка по Саратову и Энгельсу.</p>
+  <div class="banner-imgs">
+    <img src="photo_2025-11-18_22-23-15.jpg" alt="Аппетитный деликатес">
+    <img src="photo_2025-11-18_22-22-53.jpg" alt="Нарезка">
+    <img src="photo_2025-11-18_22-22-44.jpg" alt="Колбасные изделия">
+  </div>
+  <h1>Попробуйте настоящее мясо – <br>Крафтовые деликатесы ручной работы</h1>
+  <p>
+    Сочные, ароматные, премиальные продукты.<br>
+    Свежесрезанные колбасы, копчености и рулеты, созданные для гастрономического удовольствия!
+  </p>
+  <ul class="features-list">
+    <li>🟠 Только натуральное мясо и специи</li>
+    <li>🟠 Без химии, «жидкого дыма» и дешёвых заменителей</li>
+    <li>🟠 Уникальные семейные рецепты и традиционное копчение</li>
+    <li>🟠 Доставка по Саратову и Энгельсу — свежесть от цеха до двери</li>
+  </ul>
+  <a href="#order" class="cta-btn">Хочу попробовать!</a>
 </div>
 
 <div class="section" id="features">
@@ -56,7 +80,10 @@
     <div>Су-вид, сыровяленое, копченое — на любой вкус</div>
     <div>Доставка до двери, свежесть гарантирована</div>
   </div>
-  <!-- Галерея всех фото -->
+</div>
+
+<div class="section">
+  <h2>Галерея наших деликатесов</h2>
   <div class="gallery">
     <img src="photo_2025-11-18_22-23-15.jpg" alt="">
     <img src="photo_2025-11-18_22-22-53.jpg" alt="">
