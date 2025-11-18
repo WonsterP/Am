@@ -3,113 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мясные натуральные деликатесы «Саратов»</title>
+  <title>Крафтовые деликатесы Ам-Ням</title>
   <style>
-    body { font-family: 'Arial', 'Segoe UI', sans-serif; color: #222; margin: 0; background: #f9f9f6;}
-    nav { margin:20px 0; }
-    nav a { color:#b89b68; font-weight:bold; text-decoration: none; margin:0 18px;}
-    .header-section { background: linear-gradient(180deg, #fff8e0 70%, #fdecce 100%); box-shadow: 0 0 50px #e6ca91; padding:52px 0 24px 0; text-align:center; }
-    .header-section h1 { font-size:2.9em; font-family:'Arial Black',Arial,sans-serif; color:#8a3e1c; margin-top:26px; margin-bottom:18px; text-shadow:0 2px 30px #febe7c;}
-    .header-section p { font-size:1.4em; color:#ce832e; font-family:'Segoe UI',Arial,sans-serif; font-weight:700; margin-bottom:16px;}
-    .banner-imgs { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:32px;}
-    .banner-imgs img { border-radius:28px; box-shadow:0 7px 32px #e1c196;}
-    .banner-imgs img:first-child { width:330px;}
-    .banner-imgs img { width:250px;}
-    .features-list {list-style:none; padding:0; margin:0 auto 18px auto; max-width:650px; color:#68421a; font-size:1.16em;}
-    .features-list li {margin-bottom:7px;}
-    .cta-btn { display:inline-block; margin-top:18px; background:linear-gradient(90deg,#f7b265 40%,#d87c3a 100%); color:#fff; font-size:1.4em; font-weight:700; padding:15px 36px; border-radius:13px; text-decoration:none; box-shadow:0 3px 18px #d39954; letter-spacing:1px;}
-    .section { max-width: 1080px; margin: 48px auto 0 auto; background: #fff; border-radius: 24px; box-shadow: 0 7px 32px #e7d8bb36; padding: 38px 32px 40px 32px;}
-    .section h2 { color: #aa8542; margin-top:0;}
-    .features {display: flex; flex-wrap: wrap; gap:24px; margin:22px 0;}
-    .features div {flex:1 1 180px; background:#f1ede7; border-radius:15px; padding:18px; box-shadow:0 1px 7px #e5dac2;}
-    .gallery {display: flex; flex-wrap: wrap; gap: 19px; justify-content:center; margin:28px 0;}
-    .gallery img {width:220px; height:157px; object-fit:cover; border-radius:15px; box-shadow:0 1px 6px #bda76e;}
-    .product-list { columns:2; column-gap:45px; margin:28px 0;}
-    .product-list li {break-inside:avoid; margin-bottom:18px; font-size:1.12em;}
-    .call2action { background: #f7f1e7; border-radius: 15px; padding: 24px 17px; margin:24px 0; text-align:center;}
-    .call2action button { background: #aa8542; color: #fff; font-weight: bold; padding: 14px 40px; font-size:1.15em; border: none; border-radius: 9px; cursor: pointer;}
-    .contacts {background: #ede2d1; border-radius:10px; padding:16px 15px; margin:26px 0;}
-    footer {background:#ede6d6; text-align:center; color:#82633e; padding:18px; font-size:1.05em; border-top:1px solid #e4dbc1;}
-    @media(max-width:750px){
-      .section{padding:13px;}
-      .features{flex-direction:column;}
-      .product-list{columns:1;}
-      .banner-imgs{flex-direction:column;}
-      .banner-imgs img{width:97vw;}
-      .gallery img{width:97vw;}
+    body { font-family: 'Arial', 'Segoe UI', sans-serif; background: #f9f8ed; margin: 0; color: #453325;}
+    .nav {
+      text-align:center;
+      background: #fff5db;
+      padding:10px 0 2px 0;
+      font-size:1.12em;
+    }
+    .nav a {color: #a36231; text-decoration: none; margin:0 12px; font-weight:500;}
+    .header-section { position:relative; min-height:410px; background: linear-gradient(180deg, #fff8e0 70%, #fcedcd 100%); box-shadow:0 0 30px #e6ca91; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+    .logo-title { font-size:2.1em; color:#d06e2b; font-family:'Arial Black',arial,sans-serif; font-weight:900; margin:14px 0 7px 0; text-shadow:0 2px 24px #ffe8c6;}
+    .phone {font-size:1.2em; color:#8a3e1c;}
+    .messengers {margin-top:5px; margin-bottom:10px; display:flex; gap:9px;}
+    .messenger-btn {
+      padding:8px 21px; border-radius:9px; border:none; background:#2ee4ab; color:#fff; font-weight:700; font-size:1em; text-decoration:none;
+      box-shadow:0 2px 8px #b1c9bd; transition:background 0.18s;
+      display:flex; align-items:center; gap:7px;
+    }
+    .messenger-btn:hover {background:#1aa283;}
+    .messenger-wa {background:#31be4b; box-shadow:0 2px 8px #8ec9a6;}
+    .messenger-wa:hover {background:#188f43;}
+
+    .slider-box {margin:22px 0 0px 0; width:340px; max-width:98vw; height:225px; position:relative; overflow:hidden; border-radius:22px; box-shadow:0 7px 32px #b88530;}
+    .slider-img {
+        position: absolute; width:100%; height:100%; object-fit:cover; transition:opacity 1.3s;
+        opacity:0; border-radius:22px;
+    }
+    .slider-img.active { opacity:1;}
+    
+    .hero-caption {
+      margin-top:22px; font-size:1.3em; color:#bc7725; font-family:'Segoe UI',Arial,sans-serif; font-weight:700;
+      text-align:center;
+    }
+    .hero-features {
+      margin:12px auto 14px auto; max-width:440px; font-size:1.09em; display:grid; grid-template-columns:1fr; gap:7px;
+      list-style:none; padding:0;
+    }
+    .hero-features li {background: #faecd6; border-radius:8px; padding:6px 8px 5px 10px;}
+    .hero-cta {margin:18px 0;}
+    .hero-cta-btn {
+      display:inline-block; background:linear-gradient(90deg,#f7b265 35%,#d87c3a 100%); color:#fff; font-size:1.2em; font-weight:700; padding:12px 24px; border-radius:11px; text-decoration:none; box-shadow:0 2px 12px #d39954; letter-spacing:1px; border:none; cursor:pointer;}
+    .hero-cta-btn:hover {background:linear-gradient(90deg,#ffa249 55%,#e46b13 100%);}
+    
+    .compact-section {max-width:590px; margin:35px auto 0 auto; border-radius:18px; background:#fff;
+      box-shadow:0 2px 24px #edd8ac49; padding:16px 14px;}
+    .compact-section h2 {font-size:1.17em; color:#af8640; margin:10px 0 12px 0;}
+    .features-minilist {list-style:none; padding:0; font-size:1em; line-height:1.6;}
+    .features-minilist li {margin-bottom:4px; color:#a0803c;}
+    .gallery-minicompact {display: grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0;}
+    .gallery-minicompact img {width:100%; max-height:105px; object-fit:cover; border-radius:13px; box-shadow: 0 1px 7px #e5dac2;}
+    .product-list {list-style:disc; padding-left:20px; font-size:1em; color:#422d16; margin-bottom:0;}
+    .product-list li{margin-bottom:4px;}
+    .order-form {margin:13px 0;}
+    .order-form input, .order-form textarea, .order-form select { width: 98%; margin-bottom: 7px; padding:7px; border-radius:6px; border:1px solid #bea77c;}
+    .order-form button { background: #aa8542; color: #fff; font-weight: bold; padding: 10px 18px; border: none; border-radius:8px; cursor:pointer;}
+    .contacts-box {margin-top:20px;}
+    .contacts-box strong {color:#ad7d2e;}
+    .contacts-minilist {font-size:1em;}
+    .contacts-minilist li{margin-bottom:3px;}
+    footer {background:#faecd6; text-align:center; color:#82633e; padding:13px; font-size:1em; border-top:1px solid #e4dbc1;}
+    /* mobile */
+    @media(max-width:650px){
+      nav{font-size:1em;}
+      .header-section{min-height:370px; padding:9vw 2vw;}
+      .logo-title{font-size:1.15em;}
+      .phone{font-size:1em;}
+      .slider-box{width:95vw; height:31vw; min-height:115px;}
+      .hero-caption{font-size:1.07em;}
+      .compact-section{max-width:97vw; padding:5vw 2vw;}
+      .product-list{font-size:0.98em;}
     }
   </style>
 </head>
 <body>
 
-<!-- Первый экран -->
+<div class="nav">
+  <a href="#features">Преимущества</a>
+  <a href="#gallery">Галерея</a>
+  <a href="#products">Ассортимент</a>
+  <a href="#order">Заказ</a>
+  <a href="#contacts">Контакты</a>
+</div>
+
+<!-- Первый экран с названием, телефоном и мессенджерами -->
 <div class="header-section">
-  <nav>
-    <a href="#features">Преимущества</a>
-    <a href="#products">Ассортимент</a>
-    <a href="#order">Заказ</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
-  <div class="banner-imgs">
-    <img src="photo_2025-11-18_22-23-15.jpg" alt="Аппетитный деликатес">
-    <img src="photo_2025-11-18_22-22-53.jpg" alt="Нарезка">
-    <img src="photo_2025-11-18_22-22-44.jpg" alt="Колбасные изделия">
+  <div class="logo-title">Крафтовые деликатесы Ам-Ням</div>
+  <div class="phone">+7 (XXX) XXX-XX-XX</div>
+  <div class="messengers">
+    <a href="https://t.me/ВАШ_НИК" class="messenger-btn" target="_blank">&#128172; Telegram</a>
+    <a href="https://wa.me/79999999999" class="messenger-btn messenger-wa" target="_blank">&#128241; WhatsApp</a>
   </div>
-  <h1>Попробуйте настоящее мясо – <br>Крафтовые деликатесы ручной работы</h1>
-  <p>
-    Сочные, ароматные, премиальные продукты.<br>
-    Свежесрезанные колбасы, копчености и рулеты, созданные для гастрономического удовольствия!
-  </p>
-  <ul class="features-list">
-    <li>🟠 Только натуральное мясо и специи</li>
-    <li>🟠 Без химии, «жидкого дыма» и дешёвых заменителей</li>
-    <li>🟠 Уникальные семейные рецепты и традиционное копчение</li>
-    <li>🟠 Доставка по Саратову и Энгельсу — свежесть от цеха до двери</li>
+  <!-- Слайдер 3 фото с эффектом и индивидуальной скоростью -->
+  <div class="slider-box">
+    <img src="photo_2025-11-18_22-23-15.jpg" class="slider-img active" style="transition-duration:1.2s;">
+    <img src="photo_2025-11-18_22-22-53.jpg" class="slider-img" style="transition-duration:2.1s;">
+    <img src="photo_2025-11-18_22-22-44.jpg" class="slider-img" style="transition-duration:2s;">
+  </div>
+  <div class="hero-caption">
+    Сочные авторские деликатесы – премиальное мясо из собственного ремесленного цеха!<br>
+    Оцените свежесть и вкус натуральных колбас, рулетов, копченостей. Доставка по Саратову и Энгельсу.
+  </div>
+  <ul class="hero-features">
+    <li>🟠 Натуральное мясо и специи</li>
+    <li>🟠 Без химии и жидкости дыма</li>
+    <li>🟠 Семейные рецепты, ручная работа</li>
+    <li>🟠 Доставка на дом</li>
   </ul>
-  <a href="#order" class="cta-btn">Хочу попробовать!</a>
+  <div class="hero-cta">
+    <a href="#order" class="hero-cta-btn">Заказать сейчас</a>
+  </div>
+</div>
+<!-- Слайдер-логика -->
+<script>
+const imgs = document.querySelectorAll('.slider-img');
+const speeds = [3000, 4400, 3700]; // переменная скорость (мс)
+let idx=0;
+function showSlide(i){
+  imgs.forEach((img,j)=>img.classList.toggle('active',i===j));
+}
+setInterval(()=>{
+  idx=(idx+1)%imgs.length;
+  showSlide(idx);
+}, speeds[idx]);
+(function slideLoop(){
+    let current=0;
+    function next(){
+      current=(current+1)%imgs.length;
+      showSlide(current);
+      setTimeout(next, speeds[current]);
+    }
+    setTimeout(next, speeds[0]);
+})();
+</script>
+
+<!-- Компактные преимущества -->
+<div class="compact-section" id="features">
+  <h2>Почему выбирают Ам-Ням</h2>
+  <ul class="features-minilist">
+    <li>• Натуральные ингредиенты, премиум-сырье</li>
+    <li>• Отсутствие заменителей, красителей, жидкого дыма</li>
+    <li>• Копчение и томление в русской печи по авторской технологии</li>
+    <li>• Оперативная доставка в Саратове/Энгельсе</li>
+  </ul>
 </div>
 
-<div class="section" id="features">
-  <h2>Наши преимущества</h2>
-  <div class="features">
-    <div>Натуральное мясо и свежие специи</div>
-    <div>Без «жидкого дыма», консервантов, усилителей</div>
-    <div>Традиционные и авторские технологии</div>
-    <div>Ручная обработка каждого продукта</div>
-    <div>Копчение/томление в русской печи</div>
-    <div>Су-вид, сыровяленое, копченое — на любой вкус</div>
-    <div>Доставка до двери, свежесть гарантирована</div>
+<!-- Компактная галерея -->
+<div class="compact-section" id="gallery">
+  <h2>Галерея продукции</h2>
+  <div class="gallery-minicompact">
+    <img src="photo_2025-11-18_22-23-15.jpg">
+    <img src="photo_2025-11-18_22-22-53.jpg">
+    <img src="photo_2025-11-18_22-22-44.jpg">
+    <img src="photo_2025-11-18_22-22-42.jpg">
+    <img src="photo_2025-11-18_22-22-58.jpg">
+    <img src="photo_2025-11-18_22-23-08.jpg">
+    <img src="photo_2025-11-18_22-22-54.jpg">
+    <img src="photo_2025-11-18_22-22-47.jpg">
+    <img src="photo_2025-11-18_22-23-04.jpg">
+    <img src="photo_2025-11-18_22-22-37.jpg">
+    <img src="photo_2025-11-18_22-23-00.jpg">
+    <img src="photo_2025-11-18_22-22-45.jpg">
+    <img src="photo_2025-11-18_22-22-51.jpg">
+    <img src="photo_2025-11-18_22-23-18.jpg">
+    <img src="photo_2025-11-18_22-23-13.jpg">
+    <img src="photo_2025-11-18_22-22-49.jpg">
+    <img src="photo_2025-11-18_22-22-40.jpg">
+    <img src="photo_2025-11-18_22-22-56.jpg">
+    <img src="photo_2025-11-18_22-22-29.jpg">
+    <img src="photo_2025-11-18_22-22-35.jpg">
   </div>
 </div>
 
-<div class="section">
-  <h2>Галерея наших деликатесов</h2>
-  <div class="gallery">
-    <img src="photo_2025-11-18_22-23-15.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-53.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-44.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-42.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-58.jpg" alt="">
-    <img src="photo_2025-11-18_22-23-08.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-54.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-47.jpg" alt="">
-    <img src="photo_2025-11-18_22-23-04.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-37.jpg" alt="">
-    <img src="photo_2025-11-18_22-23-00.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-45.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-51.jpg" alt="">
-    <img src="photo_2025-11-18_22-23-18.jpg" alt="">
-    <img src="photo_2025-11-18_22-23-13.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-49.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-40.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-56.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-29.jpg" alt="">
-    <img src="photo_2025-11-18_22-22-35.jpg" alt="">
-  </div>
-</div>
-
-<div class="section" id="products">
-  <h2>Ассортимент продукции</h2>
+<!-- Компактный ассортимент -->
+<div class="compact-section" id="products">
+  <h2>Ассортимент деликатесов</h2>
   <ul class="product-list">
     <li>Колбаса «Фирменная» (Краковская)</li>
     <li>Колбаса «Говяжья»</li>
@@ -120,37 +189,45 @@
     <li>Вырезка свиная «Смак»</li>
     <li>Грудинка свиная «Приморская»</li>
     <li>Колбаски «Арбатские» / «Хазарские»</li>
-    <li>Колбаса «Балыковая» / «Филейная»</li>
-    <li>Ветчина «Честная»</li>
-    <li>Сервелат «Триумф»</li>
-    <li>Окорок свиной «Деликатесный»</li>
-    <li>Ребра свиные мясные</li>
-    <li>Копченая утка, утиная грудка</li>
-    <li>Филе индейки — сыровяленое/сырокопченое</li>
-    <li>Язык говяжий, рулеты, нарезки</li>
-    <li>Куриное филе, окорочка, утиное конфи (су-вид)</li>
+    <li>Ветчина «Честная», сервелат «Триумф»</li>
+    <li>Окорок «Деликатесный», ребра мясные</li>
+    <li>Копченая утка/грудка, сыровяленое/сырокопченое филе</li>
+    <li>Язык говяжий, рулеты, куриное су-вид</li>
   </ul>
 </div>
 
-<div class="section" id="order">
-  <div class="call2action">
-    <h2>Закажите свежие деликатесы!</h2>
-    <p>Доставка в Саратове и Энгельсе за 1-2 дня. Эксклюзивные предложения для постоянных клиентов.</p>
-    <button onclick="window.location.href='#contacts'">Оформить заказ</button>
-  </div>
+<!-- Компактный заказ -->
+<div class="compact-section" id="order">
+  <h2>Оформление заказа</h2>
+  <form class="order-form">
+    <input type="text" placeholder="Ваше имя" required>
+    <input type="tel" placeholder="Телефон" required>
+    <select required>
+      <option>Выберите продукт</option>
+      <option>Колбаса «Фирменная»</option>
+      <option>Копченая утка</option>
+      <option>Балык</option>
+      <option>Рулет из индейки</option>
+      <!-- добавляйте свои варианты -->
+    </select>
+    <textarea placeholder="Адрес и пожелания (по желанию)" rows="2"></textarea>
+    <button type="submit">Оформить заказ</button>
+  </form>
 </div>
 
-<div class="section contacts" id="contacts">
-  <h2>Контакты</h2>
-  <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
-  <p><strong>WhatsApp / Telegram:</strong> @ваш_ник</p>
-  <p>Доставка: Саратов, Энгельс, пригороды</p>
-  <p>Ссылка на соцсети или мессенджер (по желанию)</p>
+<!-- Компактные контакты -->
+<div class="compact-section contacts-box" id="contacts">
+  <h2>Контакты для заказа и консультаций</h2>
+  <ul class="contacts-minilist">
+    <li><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</li>
+    <li><strong>WhatsApp:</strong> @ваш_ник, <a href="https://wa.me/79999999999" target="_blank">написать</a></li>
+    <li><strong>Telegram:</strong> @ваш_ник, <a href="https://t.me/ВАШ_НИК" target="_blank">написать</a></li>
+    <li>Доставка: Саратов, Энгельс, пригород</li>
+  </ul>
 </div>
 
 <footer>
-  2025 © Мясные натуральные деликатесы «Саратов»<br>
-  <span style="font-size:0.95em;">Производство ручной работы | Гарантия свежести | Любые вопросы — звоните!</span>
+  2025 © Крафтовые деликатесы Ам-Ням — свежесть, вкус, ручная забота!
 </footer>
 </body>
 </html>
