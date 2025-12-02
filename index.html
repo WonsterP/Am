@@ -1,4 +1,444 @@
-свиная "Смак" (сырокопчёная)</h3>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафтовые деликатесы Ам-Ням</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .top-bar {
+            background-color: #000;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        .top-bar a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 0.65;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: #d4af37;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #d4af37;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid #d4af37;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #d4af37;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: #2a2a2a;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #d4af37;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .feature-card h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .products {
+            background-color: #0a0a0a;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background-color: #2a2a2a;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: #d4af37;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .order-form {
+            background-color: #2a2a2a;
+            padding: 50px;
+            max-width: 600px;
+            margin: 50px auto;
+            border: 1px solid #d4af37;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a;
+            border: 1px solid #444;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #b8942e;
+        }
+
+        .contacts {
+            text-align: center;
+            background-color: #0a0a0a;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #d4af37;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid #d4af37;
+        }
+
+        .contact-method:hover {
+            background-color: transparent;
+            color: #d4af37;
+        }
+
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #d4af37;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <p>☎ Заказать: <a href="tel:+79678003570">+7 967 800-35-70</a></p>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">Ам-Ням</div>
+            <ul>
+                <li><a href="#products">Продукция</a></li>
+                <li><a href="#order">Заказать</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="slider">
+            <div class="slide active">
+                <img src="Утиная грудка Пряная (Горячее Копчение).jpeg" alt="Деликатесы">
+            </div>
+            <div class="slide">
+                <img src="Грудка Индейки Нежная (Сырокопченая).jpeg" alt="Деликатесы">
+            </div>
+            <div class="slide">
+                <img src="Колбаса Говяжья Традиционная (Копчено-Вареная).jpeg" alt="Деликатесы">
+            </div>
+            <div class="slide">
+                <img src="Утиная Грудка Мраморная (Сырокопчёная).jpeg" alt="Деликатесы">
+            </div>
+            <div class="slide">
+                <img src="Свиная шейка Дым над Волгой (Копчено-запеченная).jpeg" alt="Деликатесы">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>Крафтовые деликатесы</h1>
+            <p>Премиальные мясные изделия ручной работы</p>
+            <a href="#order" class="cta-button">Заказать</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Наши преимущества</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Качество</h3>
+                <p>Используем только отборное мясо и натуральные специи</p>
+            </div>
+            <div class="feature-card">
+                <h3>Ручная работа</h3>
+                <p>Каждый продукт создается с особым вниманием к деталям</p>
+            </div>
+            <div class="feature-card">
+                <h3>Традиции</h3>
+                <p>Соблюдаем классические технологии приготовления</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Наша продукция</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Утиная грудка Пряная (Горячее Копчение).jpeg" alt="Утиная грудка Пряная">
+                <div class="product-info">
+                    <h3>Утиная грудка "Пряная" (Горячее Копчение)</h3>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="Утиная Грудка Мраморная (Сырокопчёная).jpeg" alt="Утиная Грудка Мраморная">
+                <div class="product-info">
+                    <h3>Утиная Грудка "Мраморная" (Сырокопчёная)</h3>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="Грудка Индейки Нежная (Сырокопченая).jpeg" alt="Грудка Индейки Нежная">
+                <div class="product-info">
+                    <h3>Грудка Индейки "Нежная" (Сырокопчёная)</h3>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="Язык Мастер-Гурмэ (Томлёный с можжевельником).jpeg" alt="Язык Мастер-Гурмэ">
+                <div class="product-info">
+                    <h3>Язык Мастер-Гурмэ (Томлёный с можжевельником)</h3>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="Вырезка свиная Смак (сырокопченая).jpeg" alt="Вырезка свиная Смак">
+                <div class="product-info">
+                    <h3>Вырезка свиная "Смак" (сырокопчёная)</h3>
                 </div>
             </div>
             <div class="product-card">
@@ -7,8 +447,8 @@
                     <h3>Колбаса свиная А-ля Краковская (Копчено-Вареная)</h3>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="Колбаза Говяжья Традиционная (Копчено-Вареная).jpeg" alt="Колбаза Говяжья Традиционная">
+            <div
+                <img src="Колбаса Говяжья Традиционная (Копчено-Вареная).jpeg" alt="Колбаза Говяжья Традиционная">
                 <div class="product-info">
                     <h3>Колбаза Говяжья Традиционная (Копчено-Вареная)</h3>
                 </div>
@@ -97,7 +537,6 @@
                 <label for="product">Выберите продукт</label>
                 <select id="product" name="product" required>
                     <option value="">-- Выберите --</option>
-                    <option value="Утка Кочёная Премиум">Утка Кочёная Премиум (Копчено-запеченная)</option>
                     <option value="Утиная грудка Пряная">Утиная грудка "Пряная" (Горячее Копчение)</option>
                     <option value="Утиная Грудка Мраморная">Утиная Грудка "Мраморная" (Сырокопчёная)</option>
                     <option value="Грудка Индейки Нежная">Грудка Индейки "Нежная" (Сырокопчёная)</option>
@@ -160,4 +599,3 @@
     </script>
 </body>
 </html>
-
